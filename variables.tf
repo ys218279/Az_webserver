@@ -25,7 +25,7 @@ variable "tags" {
 
 variable "object_id" {
   description = "object_id for my user"
-  type = string
+  type        = string
 }
 
 # Key-vault variables

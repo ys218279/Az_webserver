@@ -2,30 +2,41 @@
 
 variable "location" {
   description = "Azure region to deploy recources into"
-  type = string
-  default = "westeurope"
+  type        = string
+  default     = "westeurope"
 }
 
 variable "resource_group_name" {
-    description = "Name of the resource group"
-    type = string
-    default = "rg-webserver-dev"
+  description = "Name of the resource group"
+  type        = string
+  default     = "rg-webserver-dev"
 }
 
 variable "tags" {
-    description = "Common resource tags"
-    type = map(string)
-    default = {
-      environment = "dev"
-      owner = "youness"
-      project = "webserver"
-    }
-  
+  description = "Common resource tags"
+  type        = map(string)
+  default = {
+    environment = "dev"
+    owner       = "youness"
+    project     = "webserver"
+  }
+
 }
 
+variable "object_id" {
+  description = "object_id for my user"
+  type = string
+}
 
-#variable "ssh_public_key" {
-#  description = "Public key for SSH access"
-#  type        = string
-#  # You’ll pass in the ssh_public_key using a .tfvars file or CLI (not hardcoded).
-#}
+# Key-vault variables
+
+variable "kv_allowed_ip" {
+  description = "Allowed ips that can access the Key vault"
+  type        = list(string)
+}
+
+variable "allowed_ssh_ip" {
+  description = "ip addresses allowed to SSH into jumpbox"
+  type        = list(string)
+}
+
